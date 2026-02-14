@@ -1,0 +1,17 @@
+[Unit]
+Description=Dental Concierge Backend Service
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/opt/dental-concierge/apps/backend
+EnvironmentFile=/opt/dental-concierge/apps/backend/.env
+ExecStart=/usr/bin/node /opt/dental-concierge/apps/backend/dist/index.js
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
